@@ -8,3 +8,5 @@ fs.unlink(downloadEncPhotoName,(err)=>{
         console.log("deleted!!");
     }
 });
+
+//testing the pull command
