@@ -1,0 +1,14 @@
+<h2>Encrypt</h2>
+<form action="/enc" method="POST" enctype="multipart/form-data">
+	Your username: <input type="text" name="sender" required><br>
+	Reciever: <input type="text" name="reciever" required><br>
+	Message: <input type="text" name="message" required><br>
+	<input type="file" name="myImage" required><br>
+	<input type="submit" value="Upload!"><br>
+</form>
+<h2><%= typeof msg != 'undefined' ? msg:"" %></h2>
+
+<% if(typeof(downloadReady) != 'undefined'){ %>
+	Key for decryption: <p><%=d%></p>
+	<a href="/download">Download the encrypted image</a>
+<%}%>
