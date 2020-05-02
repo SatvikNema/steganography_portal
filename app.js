@@ -84,12 +84,20 @@ app.post("/enc",(req, res) => {
 			    this.data[lenIndex] = len;
 			    this.pack().pipe(fs.createWriteStream(downloadEncPhotoName));
 			});
-            // fs.unlink(req.bo);
-            res.render("encrypt",{                
-                msg: "File uploaded successfully",
-                downloadReady: 1,
-                d:d
+            console.log(req.file);
+            fs.unlink(path.join(__dirname, '/public/images/'+req.file.filename), (err)=>{
+                if(err){
+                    console.log(err);
+                }else{
+                    console.log("the original file is deleted!");
+                    res.render("encrypt",{                
+                        msg: "File uploaded successfully",
+                        downloadReady: 1,
+                        d:d
+                    });
+                }
             });
+            
         }
     });
 });
