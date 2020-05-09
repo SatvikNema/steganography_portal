@@ -10,6 +10,6 @@
 
 <h2><%= typeof msg != 'undefined' ? msg:"" %></h2>
 
-<% if(messageShow.length!=0){ %>
+<% if((typeof messageShow!='undefined') && messageShow.length!=0){ %>
 	<p>The decrypted message is: <%= messageShow %></p>
 <% } %>

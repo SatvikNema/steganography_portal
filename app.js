@@ -43,8 +43,8 @@ const p = process.env.P, q = process.env.Q, e = process.env.E, d = process.env.D
 
 const n = p*q, phi = (p-1)*(q-1);
 
-var downloadReady=0, downloadEncPhotoName = "", savedFilePath = "", name="", message = "";
-
+// var downloadReady=0 = "", savedFilePath = "", name="", message = "";
+var downloadEncPhotoName = "", message = "";
 var handleError = (err, res) => {
 	res.status(500).contentType("text/plain").end("Oops! Something went wrong!");
 };
