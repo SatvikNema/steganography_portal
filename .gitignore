@@ -2,3 +2,6 @@ lessEfficientVersion.js
 .env
 node_modules
 package-lock.json
+public/css
+public/js
+views/marTest.html
