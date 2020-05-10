@@ -58,7 +58,9 @@ app.get("/enc", (req, res)=>{
 });
 
 app.get("/dec", (req, res)=>{
-	res.render("decrypt", {messageShow: message});
+	res.render("decrypt", {messageShow: message});if(ans==-1){
+        return ans;
+    }
 });
 
 app.post("/enc",(req, res) => {
@@ -158,6 +160,10 @@ app.get("/download", (req, res)=>{
         }
     });
     
+});
+
+app.get("/instructions", (req, res)=>{
+    res.render("instructions");
 });
 
 function modPow(a,n,m){

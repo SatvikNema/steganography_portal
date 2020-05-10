@@ -12,3 +12,49 @@
     font-weight: bold;
 }
 
+.instructions{
+    width: 70%;
+    text-align: left;
+}
+
+.sub-heading{
+    color: darkmagenta;
+    font-size: large;
+}
+
+.rsa-block{
+    width: 150px;
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+    height: 40px;
+    /* border: 5px solid green; */
+    font-size: x-large;
+    animation-name: animation-for-rsa-label;
+    animation-duration: 2s;
+    animation-iteration-count: infinite
+}
+
+@keyframes animation-for-rsa-label {
+    0%   {
+        color:red;
+        transform: rotate(50deg);
+    }
+    25%  {
+        color:yellow;
+        transform: rotate(-50deg);
+    }
+    50%  {
+        color:blue;
+        transform: rotate(50deg);
+    }
+    75%  {
+        color:green;
+        transform: rotate(-50deg);
+    }
+    100% {
+        color:red;
+        transform: rotate(50deg);
+    }
+}
+

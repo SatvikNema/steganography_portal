@@ -1,0 +1,49 @@
+<%- include("partials/header") %>
+    <div>
+        <h3><strong>How to use the tool?</strong></h3>
+        <div class="instructions">
+            <ul>
+                <li class="sub-heading"><strong>To embedd your message into an image:</strong></li>
+                    <ol>
+                        <li>Select encrypt option from the home page, or <a href="/enc">click here.</a></li>
+                        <li>Fill out the details.</li>
+                        <li>Sender and reciever dont really matter as that feature isnt complete yet.</li>
+                        <li>Enter the message which you want to embedd.</li>
+                        <li>Upload the image. <strong>Only .png format is supported currently.</strong>
+                            Thode time me baaki ke liye bhi aa jayega.</li>
+                        <li>After uploading, download the embedded image.<br>
+                            <strong>Note that once downloaded, the same image cannot be downloaded again.</strong>
+                            This is done to save server space, and once downloaded, the image is deleted from the server.</li>
+                        <li>Note down the key also, as it is essential for decryption.</li>
+                        <li>Now you can send this image to anyone you want, along with that key.</li>
+                    </ol><br>
+                <li class="sub-heading"><strong>To get the message back:</strong></li>
+                    <ol>
+                        <li>Go to the decrypt option in the home page, or <a href="/dec">click here.</a></li>
+                        <li>Again, the sender and reciever stuff doesnt really matter.</li>
+                        <li>It is important that you enter the same key you got when the image was downloaded.</li>
+                        <li>Upload the image which you downloaded.</li>
+                        <li>Click upload to see the embedded message.</li>
+                    </ol>
+            </ul>
+        </div>
+        <h3><strong>How is the embedding done?</strong></h3>
+        <div class="instructions">
+            <ul>
+                <div class="rsa-block">
+                    <li>RSA bois</li>
+                </div><br>
+                <li>The message you enter is not directly embedded into the image.</li>
+                <li>It is first encrypted by RSA, then embedded.</li>
+                <li>Reasons for this: consider 2 scenarios</li>
+                    <ol>
+                        <li>The attacker gets hold of the image containing the message.<br> He doesnt know how the embedding of the text has been done. So, he cant get the message.</li>
+                        <li>Attacker has the image and he knows how the embedding has been done.<br>He still cannot retrive that message because he doesnt have the key.</li>
+                    </ol>
+            </ul>
+        </div>
+    </div>
+    </center>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    </body>
+</html>
