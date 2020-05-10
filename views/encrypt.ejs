@@ -1,14 +1,25 @@
-<h2>Encrypt</h2>
-<form action="/enc" method="POST" enctype="multipart/form-data">
-	Your username: <input type="text" name="sender" required><br>
-	Reciever: <input type="text" name="reciever" required><br>
-	Message: <input type="text" name="message" required><br>
-	<input type="file" name="myImage" required><br>
-	<input type="submit" value="Upload!"><br>
-</form>
-<h2><%= typeof msg != 'undefined' ? msg:"" %></h2>
+<%- include("partials/header") %>
+<h3>Upload image to encrypt</h3>
+
+<div class="row">
+	<form action="/enc" method="POST" enctype="multipart/form-data">
+		Your username: <input type="text" name="sender" required><br>
+		Reciever: <input type="text" name="reciever" required><br>
+		Message: <input type="text" name="message" required><br><br>
+		<input type="file" name="myImage" required><br><br>
+		<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+			<i class="material-icons right">cloud</i>
+		</button>
+	</form>
+    
+</div>
+
+
+<h4><%= typeof msg != 'undefined' ? msg:"" %></h4>
 
 <% if(typeof(downloadReady) != 'undefined'){ %>
-	Key for decryption: <p><%=d%></p>
-	<a href="/download">Download the encrypted image</a>
+	<h5>Not down the key for decryption: <%=d%></h5>	
+	<h5><a href="/download">Download the encrypted image</a></h5>
 <%}%>
+
+<%- include("partials/footer") %>

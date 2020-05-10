@@ -1,0 +1,12 @@
+.row{
+    width: 20%;
+}
+
+#help-message{
+    font-size: large;
+}
+
+.show-message{
+    color: rgb(153, 49, 1);
+    font-size: xx-large;
+}

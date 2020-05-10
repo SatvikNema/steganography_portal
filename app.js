@@ -84,12 +84,10 @@ app.post("/enc",(req, res) => {
 			    this.data[lenIndex] = len;
 			    this.pack().pipe(fs.createWriteStream(downloadEncPhotoName));
 			});
-            console.log(req.file);
             fs.unlink(path.join(__dirname, '/public/images/'+req.file.filename), (err)=>{
                 if(err){
                     console.log(err);
                 }else{
-                    console.log("the original file is deleted!");
                     res.render("encrypt",{                
                         msg: "File uploaded successfully",
                         downloadReady: 1,
@@ -115,14 +113,12 @@ app.post("/dec",(req, res) => {
         else{
             var decodedMsg = "", dec;
             const decFileName = path.join(__dirname, "/public/images/decImage"+path.extname(req.file.originalname).toLowerCase());
-            // console.log(req.file);
             const d = parseInt(req.body.key);
             fs.rename(req.file.path, decFileName, (err)=>{
                 if(err) console.log(err);
                 else{
                     fs.createReadStream(decFileName).pipe(new PNG()).on('parsed', function() {
                         len = this.data[(this.height-1)<<2];
-                        // console.log("Length recieved from: "+((this.height-1)<<2))
                         for (var x = 0; x < len; x++) {
                             idx = x << 2;
                             dec = modPow(this.data[idx], d, n);
@@ -132,7 +128,6 @@ app.post("/dec",(req, res) => {
                             if(err){
                                 console.log(err);
                             }else{
-                                console.log("Decoded message: "+decodedMsg);
                                 res.render("decrypt", {messageShow: decodedMsg});
                             }
                         });
