@@ -35,7 +35,7 @@ function checkFileType(file, cb){
     if(mimetype && extname){
         return cb(null,true);
     } else {
-        cb('Error: Images Only!');
+        cb('Error: PNG Images Only!');
     }
 }
 
@@ -58,9 +58,7 @@ app.get("/enc", (req, res)=>{
 });
 
 app.get("/dec", (req, res)=>{
-	res.render("decrypt", {messageShow: message});if(ans==-1){
-        return ans;
-    }
+	res.render("decrypt", {messageShow: message});
 });
 
 app.post("/enc",(req, res) => {
