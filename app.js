@@ -78,7 +78,8 @@ app.post("/enc",(req, res) => {
 			    for (var x = 0; x < len; x++) {
                     var idx = x << 2;
 			        enc = modPow(msg.charCodeAt(x), e, n);
-			        this.data[idx] = enc;
+                    this.data[idx] = enc;
+                    // console.log(msg[x]+" (ASCII = "+msg.charCodeAt(x)+") is encrypted (using RSA) to "+enc+" and embedded in the "+x+" pixel");
 			    }
 			    lenIndex = (this.height-1)<<2;
 			    this.data[lenIndex] = len;
@@ -123,6 +124,7 @@ app.post("/dec",(req, res) => {
                             idx = x << 2;
                             dec = modPow(this.data[idx], d, n);
                             decodedMsg += String.fromCharCode(dec);
+                            // console.log("Decryption (using RSA) of: "+this.data[idx]+" becomes: "+dec+" whose ASCII is: "+String.fromCharCode(dec));
                         }
                         fs.unlink(decFileName, ()=>{
                             if(err){

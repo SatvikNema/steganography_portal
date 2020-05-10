@@ -8,7 +8,7 @@
 		Enter the key: <input type="text" name="key" required><br><br>
 		<input type="file" name="myImage" required><br><br>
 		<button class="btn waves-effect waves-light" type="submit" name="action">Submit
-			<i class="material-icons right">cloud</i>
+			<i class="material-icons right">cloud_upload</i>
 		</button>
 	</form>
 </div>
@@ -17,6 +17,7 @@
 
 <% if((typeof messageShow!='undefined') && messageShow.length!=0){ %>
 	<p>The decrypted message is: <div class="show-message"><%= messageShow %></div> </p>
+	<p class="unreadable-msg">If the message is unreadable, recheck the key and also the uploaded message</p>
 <% } %>
 
 <%- include("partials/footer") %>
